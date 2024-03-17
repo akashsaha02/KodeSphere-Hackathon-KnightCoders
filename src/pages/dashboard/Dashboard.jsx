@@ -14,28 +14,21 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container mx-auto grid grid-cols-2 grid-rows-7 px-7 pt-6 pb-10 min-h-screen">
-      <div className="col-span-2 row-span-1">
-        <Navbar />
-      </div>
+    <div className="container mx-auto grid-rows-7 px-7 pt-6 pb-10 min-h-screen">
+      <Navbar />
 
-      <div className="col-span-2 row-span-3">
-        <MainCard />
-      </div>
 
-      <div className="col-span-2 row-span-3">
-        <Card
-          modalHandler={modalHandler}
-          setHeading={setHeading}
-          setLogo={setLogo}
-        />
-      </div>
+      <MainCard />
 
-      <div>
-        {modal && (
-          <Modal heading={heading} logo={logo} modalHandler={modalHandler} />
-        )}
-      </div>
+      <Card
+        modalHandler={modalHandler}
+        setHeading={setHeading}
+        setLogo={setLogo}
+      />
+
+      {modal && (
+        <Modal heading={heading} logo={logo} modalHandler={modalHandler} />
+      )}
     </div>
   );
 };

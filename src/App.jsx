@@ -9,7 +9,6 @@ function App() {
   return (
     <div>
       <div className="container mx-auto">
-        <UsersCard />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Dashboard />} />
