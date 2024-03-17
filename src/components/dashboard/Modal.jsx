@@ -78,7 +78,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
                 ) : logo === 2 ? (
                   <TbAirConditioning size={"4rem"} />
                 ) : logo === 3 ? (
-                  <FaFan size={"4rem"} />
+                  <FaLightbulb size={"4rem"} />
                 ) : (
                   <FaLightbulb size={"4rem"} />
                 )}
