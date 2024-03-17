@@ -16,101 +16,100 @@ export const Modal = ({ modalHandler, heading, logo }) => {
 
   //LED
 
-  // useEffect(() => {
-  //   // Define a function to handle the API call based on the state
-  //   const handleApiCall = async () => {
-  //     try {
-  //       if (ledVal === 1) {
-  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
-  //           teamid: "SCdy54a",
-  //           device: "led",
-  //           value: "#ffffff",
-  //         });
-  //       } else if (ledVal === 0) {
-  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
-  //           teamid: "SCdy54a",
-  //           device: "led",
-  //           value: "#000000",
-  //         });
-  //       }
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    // Define a function to handle the API call based on the state
+    const handleApiCall = async () => {
+      try {
+        if (ledVal === 1) {
+          await axios.post("https://kodessphere-api.vercel.app/devices", {
+            teamid: "SCdy54a",
+            device: "led",
+            value: "#ffffff",
+          });
+        } else if (ledVal === 0) {
+          await axios.post("https://kodessphere-api.vercel.app/devices", {
+            teamid: "SCdy54a",
+            device: "led",
+            value: "#000000",
+          });
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
 
-  //   handleApiCall();
-  // }, [ledVal]);
+    handleApiCall();
+  }, [ledVal]);
 
-  // AC
-  // useEffect(() => {
-  //   const handleAcApiCall = async () => {
-  //     try {
-  //       await axios.post("https://kodessphere-api.vercel.app/devices", {
-  //         teamid: "SCdy54a",
-  //         device: "ac",
-  //         value: {
-  //           temp: parseFloat(acTemp),
-  //           state: 1,
-  //         },
-  //       });
-  //       axios.get("https://kodessphere-api.vercel.app/devices").then((res) => {
-  //         setDisplayTemp(res.data.ac.temp);
-  //       });
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     }
-  //   };
+  //AC
+  useEffect(() => {
+    const handleAcApiCall = async () => {
+      try {
+        await axios.post("https://kodessphere-api.vercel.app/devices", {
+          teamid: "SCdy54a",
+          device: "ac",
+          value: {
+            temp: parseFloat(acTemp),
+            state: 1,
+          },
+        });
+        axios.get("https://kodessphere-api.vercel.app/devices").then((res) => {
+          setDisplayTemp(res.data.ac.temp);
+        });
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
 
-  //   handleAcApiCall();
-  // }, [acTemp]);
+    handleAcApiCall();
+  }, [acTemp]);
 
   //FAN
 
-  // useEffect(() => {
-  //   const handleFanApiCall = async () => {
-  //     try {
-  //       await axios.post("https://kodessphere-api.vercel.app/devices", {
-  //         teamid: "SCdy54a",
-  //         device: "fan",
-  //         value: parseFloat(fanSpeed),
-  //       });
-  //       axios.get("https://kodessphere-api.vercel.app/devices").then((res) => {
-  //         setDisplaySpeed(res.data.fan.speed);
-  //       });
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const handleFanApiCall = async () => {
+      try {
+        await axios.post("https://kodessphere-api.vercel.app/devices", {
+          teamid: "SCdy54a",
+          device: "fan",
+          value: parseFloat(fanSpeed),
+        });
+        axios.get("https://kodessphere-api.vercel.app/devices").then((res) => {
+          setDisplaySpeed(res.data.fan.speed);
+        });
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
 
-  //   handleFanApiCall();
-  // }, [fanSpeed]);
+    handleFanApiCall();
+  }, [fanSpeed]);
 
   //LIGHT
 
-  // useEffect(() => {
+  useEffect(() => {
+    const handleBulbApiCall = async () => {
+      try {
+        if (ledVal === 1) {
+          await axios.post("https://kodessphere-api.vercel.app/devices", {
+            teamid: "SCdy54a",
+            device: "bulb",
+            value: parseFloat(lightVal),
+          });
+        } else if (ledVal === 0) {
+          await axios.post("https://kodessphere-api.vercel.app/devices", {
+            teamid: "SCdy54a",
+            device: "bulb",
+            value: parseFloat(lightVal),
+          });
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
 
-  //   const handleBulbApiCall = async () => {
-  //     try {
-  //       if (ledVal === 1) {
-  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
-  //           teamid: "SCdy54a",
-  //           device: "bulb",
-  //           value: parseFloat(lightVal),
-  //         });
-  //       } else if (ledVal === 0) {
-  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
-  //           teamid: "SCdy54a",
-  //           device: "bulb",
-  //           value: parseFloat(lightVal),
-  //         });
-  //       }
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     }
-  //   };
-
-  //   handleBulbApiCall();
-  // }, [lightVal]);
+    handleBulbApiCall();
+  }, [lightVal]);
 
   return (
     <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex flex-col justify-center items-center">
@@ -242,3 +241,13 @@ export const Modal = ({ modalHandler, heading, logo }) => {
     </div>
   );
 };
+
+
+
+
+
+
+
+
+
+
