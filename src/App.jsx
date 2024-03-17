@@ -8,11 +8,8 @@ function App() {
   return (
     <div>
       <div className="container mx-auto">
-<<<<<<< HEAD
         <Navbar />
         <UsersCard />
-=======
->>>>>>> e5c5c96498fad1bd9d2bf9d81ecac3306f2b55ba
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Dashboard />} />
