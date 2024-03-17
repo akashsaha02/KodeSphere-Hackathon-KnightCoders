@@ -7,8 +7,8 @@ import Dashboard from "./pages/dashboard/Dashboard";
 function App() {
   return (
     <div>
+      <Navbar />
       <div className="container mx-auto">
-        <Navbar />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Dashboard />} />

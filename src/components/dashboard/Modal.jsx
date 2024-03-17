@@ -10,22 +10,98 @@ export const Modal = ({ modalHandler, heading, logo }) => {
   const [ledVal, setLedVal] = useState(0);
   const [acTemp, setAcTemp] = useState(23);
   const [displayTemp, setDisplayTemp] = useState("");
+  const [fanSpeed, setFanSpeed] = useState(0);
+  const [displaySpeed, setDisplaySpeed] = useState("");
+  const [lightVal, setLightVal] = useState(0);
+
+  //LED
+
+  // useEffect(() => {
+  //   // Define a function to handle the API call based on the state
+  //   const handleApiCall = async () => {
+  //     try {
+  //       if (ledVal === 1) {
+  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
+  //           teamid: "SCdy54a",
+  //           device: "led",
+  //           value: "#ffffff",
+  //         });
+  //       } else if (ledVal === 0) {
+  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
+  //           teamid: "SCdy54a",
+  //           device: "led",
+  //           value: "#000000",
+  //         });
+  //       }
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //     }
+  //   };
+
+  //   handleApiCall();
+  // }, [ledVal]);
+
+  //AC
+  // useEffect(() => {
+  //   const handleAcApiCall = async () => {
+  //     try {
+  //       await axios.post("https://kodessphere-api.vercel.app/devices", {
+  //         teamid: "SCdy54a",
+  //         device: "ac",
+  //         value: {
+  //           temp: parseFloat(acTemp),
+  //           state: 1,
+  //         },
+  //       });
+  //       axios.get("https://kodessphere-api.vercel.app/devices").then((res) => {
+  //         setDisplayTemp(res.data.ac.temp);
+  //       });
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //     }
+  //   };
+
+  //   handleAcApiCall();
+  // }, [acTemp]);
+
+  //FAN
+
+  // useEffect(() => {
+  //   const handleFanApiCall = async () => {
+  //     try {
+  //       await axios.post("https://kodessphere-api.vercel.app/devices", {
+  //         teamid: "SCdy54a",
+  //         device: "fan",
+  //         value: parseFloat(fanSpeed),
+  //       });
+  //       axios.get("https://kodessphere-api.vercel.app/devices").then((res) => {
+  //         setDisplaySpeed(res.data.fan.speed);
+  //       });
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //     }
+  //   };
+
+  //   handleFanApiCall();
+  // }, [fanSpeed]);
+
+  //LIGHT
 
   useEffect(() => {
     // Define a function to handle the API call based on the state
-    const handleApiCall = async () => {
+    const handleBulbApiCall = async () => {
       try {
         if (ledVal === 1) {
           await axios.post("https://kodessphere-api.vercel.app/devices", {
             teamid: "SCdy54a",
-            device: "led",
-            value: "#ffffff",
+            device: "bulb",
+            value: parseFloat(lightVal),
           });
         } else if (ledVal === 0) {
           await axios.post("https://kodessphere-api.vercel.app/devices", {
             teamid: "SCdy54a",
-            device: "led",
-            value: "#000000",
+            device: "bulb",
+            value: parseFloat(lightVal),
           });
         }
       } catch (error) {
@@ -33,30 +109,8 @@ export const Modal = ({ modalHandler, heading, logo }) => {
       }
     };
 
-    handleApiCall();
-  }, [ledVal]); // Watch for changes in 'val'
-
-  useEffect(() => {
-    const handleAcApiCall = async () => {
-      try {
-        await axios.post("https://kodessphere-api.vercel.app/devices", {
-          teamid: "SCdy54a",
-          device: "ac",
-          value: {
-            temp: parseFloat(acTemp),
-            state: 1,
-          },
-        });
-        axios.get("https://kodessphere-api.vercel.app/devices").then((res) => {
-          setDisplayTemp(res.data.ac.temp);
-        });
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-
-    handleAcApiCall();
-  }, [acTemp]);
+    handleBulbApiCall();
+  }, [lightVal]);
 
   return (
     <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex flex-col justify-center items-center">
@@ -88,9 +142,9 @@ export const Modal = ({ modalHandler, heading, logo }) => {
 
           {logo === 1 ? (
             <div className="Led">
-              <div>
+              <div className="flex items-center gap-5 ">
                 <div
-                  className="p-4 bg-blue-500 cursor-pointer"
+                  className="py-3 px-8 rounded-xl bg-blue-500 cursor-pointer"
                   onClick={() => {
                     setLedVal(1);
                   }}
@@ -98,7 +152,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
                   ON
                 </div>
                 <div
-                  className="p-4 bg-red-500 cursor-pointer"
+                  className="py-3 px-8 rounded-xl bg-yellow-300 cursor-pointer"
                   onClick={() => {
                     setLedVal(0);
                   }}
@@ -136,50 +190,50 @@ export const Modal = ({ modalHandler, heading, logo }) => {
             </div>
           ) : logo === 3 ? (
             <div className="Fan">
-              <div className="pt-5">
-                <input
-                  type="number"
-                  placeholder="Fan speed"
-                  className="p-3 rounded-xl border-transparent shadow-md"
-                />
+              <div className="flex justify-center items-center bg-slate-600 rounded-xl">
+                <div className="py-4 px-6 text-white font-semibold text-2xl">
+                  {displaySpeed ? displaySpeed : fanSpeed}
+                </div>
               </div>
 
-              <div className="pt-5">
-                <input
-                  type="text"
-                  placeholder="Enter receiver userid"
-                  className="p-3 rounded-xl border-transparent shadow-md"
-                />
-              </div>
-
-              <div className="pt-5">
-                <button className="bg-blue-400 hover:bg-blue-600 hover:text-white px-8 p-3 rounded-xl shadow-md text-xl">
-                  Send
-                </button>
+              <div className="flex flex-col items-center pt-5">
+                <div>
+                  <label className="block mb-2 text-lg font-medium text-gray-900 ">
+                    Control Fan Speed
+                  </label>
+                </div>
+                <div>
+                  <input
+                    id="default-range"
+                    type="range"
+                    min="0"
+                    max="5"
+                    value={fanSpeed}
+                    onChange={(e) => setFanSpeed(e.target.value)}
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  />
+                </div>
               </div>
             </div>
           ) : (
-            <div className="AC">
-              <div className="pt-5">
-                <input
-                  type="number"
-                  placeholder="AC"
-                  className="p-3 rounded-xl border-transparent shadow-md"
-                />
-              </div>
-
-              <div className="pt-5">
-                <input
-                  type="text"
-                  placeholder="Enter receiver userid"
-                  className="p-3 rounded-xl border-transparent shadow-md"
-                />
-              </div>
-
-              <div className="pt-5">
-                <button className="bg-blue-400 hover:bg-blue-600 hover:text-white px-8 p-3 rounded-xl shadow-md text-xl">
-                  Send
-                </button>
+            <div className="Light">
+              <div className="flex items-center gap-5 ">
+                <div
+                  className="py-3 px-8 rounded-xl bg-blue-500 cursor-pointer"
+                  onClick={() => {
+                    setLightVal(1);
+                  }}
+                >
+                  ON
+                </div>
+                <div
+                  className="py-3 px-8 rounded-xl bg-yellow-300 cursor-pointer"
+                  onClick={() => {
+                    setLightVal(0);
+                  }}
+                >
+                  OFF
+                </div>
               </div>
             </div>
           )}
