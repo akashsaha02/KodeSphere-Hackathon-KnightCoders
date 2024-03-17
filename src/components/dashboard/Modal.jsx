@@ -1,6 +1,9 @@
 import { IoCloseSharp } from "react-icons/io5";
 
 import { HiOutlineLightBulb } from "react-icons/hi";
+import { TbAirConditioning } from "react-icons/tb";
+import { FaFan } from "react-icons/fa6";
+import { FaLightbulb } from "react-icons/fa";
 
 export const Modal = ({ modalHandler, heading, logo }) => {
   return (
@@ -21,11 +24,11 @@ export const Modal = ({ modalHandler, heading, logo }) => {
                 {logo === 1 ? (
                   <HiOutlineLightBulb size={"4rem"} />
                 ) : logo === 2 ? (
-                  <HiOutlineLightBulb size={"4rem"} />
+                  <TbAirConditioning size={"4rem"} />
                 ) : logo === 3 ? (
-                  <HiOutlineLightBulb size={"4rem"} />
+                  <FaFan size={"4rem"} />
                 ) : (
-                  <HiOutlineLightBulb size={"4rem"} />
+                  <FaFan size={"4rem"} />
                 )}
               </button>
             </div>
