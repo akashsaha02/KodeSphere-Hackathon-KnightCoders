@@ -14,7 +14,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container mx-auto grid-rows-7 px-7 pt-6 pb-10 min-h-screen">
+    <div className="container mx-auto px-7 pt-6 mb-6">
 
       <div className="grid grid-cols-3 bg-gray-200 rounded-t-xl">
         <div className=" col-span-2">
