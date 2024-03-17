@@ -1,7 +1,6 @@
 import Card from "../../components/dashboard/Card";
 import MainCard from "../../components/dashboard/MainCard";
 import { Modal } from "../../components/dashboard/Modal";
-import Navbar from "../../components/dashboard/Navbar";
 import { useState } from "react";
 import UsersCard from "../../components/users/UsersCard";
 
@@ -16,7 +15,6 @@ const Dashboard = () => {
 
   return (
     <div className="container mx-auto grid-rows-7 px-7 pt-6 pb-10 min-h-screen">
-      <Navbar />
 
       <div className="grid grid-cols-3 bg-gray-200 rounded-t-xl">
         <div className=" col-span-2">
