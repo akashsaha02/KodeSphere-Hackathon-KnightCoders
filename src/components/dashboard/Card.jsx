@@ -6,7 +6,7 @@ const Card = ({ modalHandler, setHeading, setLogo }) => {
       <div
         onClick={() => {
           modalHandler();
-          setHeading("Fan");
+          setHeading("Control Led");
           setLogo(1);
         }}
       >
@@ -15,7 +15,7 @@ const Card = ({ modalHandler, setHeading, setLogo }) => {
       <div
         onClick={() => {
           modalHandler();
-          setHeading("Bulb");
+          setHeading("Control AC");
           setLogo(2);
         }}
       >
@@ -24,7 +24,7 @@ const Card = ({ modalHandler, setHeading, setLogo }) => {
       <div
         onClick={() => {
           modalHandler();
-          setHeading("Fan");
+          setHeading("Control Fan");
           setLogo(3);
         }}
       >
@@ -33,7 +33,7 @@ const Card = ({ modalHandler, setHeading, setLogo }) => {
       <div
         onClick={() => {
           modalHandler();
-          setHeading("Light");
+          setHeading("Control Light");
           setLogo(4);
         }}
       >
