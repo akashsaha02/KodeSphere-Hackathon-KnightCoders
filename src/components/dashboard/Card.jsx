@@ -39,11 +39,11 @@ const Card = ({ modalHandler, setHeading, setLogo }) => {
         <div
           onClick={() => {
             modalHandler();
-            setHeading("Control Light");
+            setHeading("Control Bulb");
             setLogo(4);
           }}
         >
-          <MinCard text={"Light"} cardNo={4} />
+          <MinCard text={"Bulb"} cardNo={4} />
         </div>
       </div>
     </div>
