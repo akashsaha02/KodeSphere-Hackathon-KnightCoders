@@ -7,7 +7,7 @@ const MinCard = ({ text, cardNo }) => {
   return (
     <div
       // onClick={modalHandler}
-      className="py-10 px-20 cursor-pointer rounded-xl border-transparent shadow-md m-3"
+      className="py-10 px-20 cursor-pointer rounded-xl bg-white border-transparent shadow-md mb-4"
     >
       <div className="flex justify-center">
         <div>

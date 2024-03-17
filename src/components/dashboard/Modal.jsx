@@ -41,7 +41,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
   //   handleApiCall();
   // }, [ledVal]);
 
-  //AC
+  // AC
   // useEffect(() => {
   //   const handleAcApiCall = async () => {
   //     try {
@@ -87,30 +87,30 @@ export const Modal = ({ modalHandler, heading, logo }) => {
 
   //LIGHT
 
-  useEffect(() => {
-    // Define a function to handle the API call based on the state
-    const handleBulbApiCall = async () => {
-      try {
-        if (ledVal === 1) {
-          await axios.post("https://kodessphere-api.vercel.app/devices", {
-            teamid: "SCdy54a",
-            device: "bulb",
-            value: parseFloat(lightVal),
-          });
-        } else if (ledVal === 0) {
-          await axios.post("https://kodessphere-api.vercel.app/devices", {
-            teamid: "SCdy54a",
-            device: "bulb",
-            value: parseFloat(lightVal),
-          });
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
+  // useEffect(() => {
 
-    handleBulbApiCall();
-  }, [lightVal]);
+  //   const handleBulbApiCall = async () => {
+  //     try {
+  //       if (ledVal === 1) {
+  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
+  //           teamid: "SCdy54a",
+  //           device: "bulb",
+  //           value: parseFloat(lightVal),
+  //         });
+  //       } else if (ledVal === 0) {
+  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
+  //           teamid: "SCdy54a",
+  //           device: "bulb",
+  //           value: parseFloat(lightVal),
+  //         });
+  //       }
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //     }
+  //   };
+
+  //   handleBulbApiCall();
+  // }, [lightVal]);
 
   return (
     <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex flex-col justify-center items-center">
@@ -119,7 +119,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
           <IoCloseSharp size={"3.5rem"} />
         </button>
 
-        <div className="min-h-[40rem] min-w-[60rem] bg-gray-100 border-transparent rounded-[5rem] shadow-2xl flex flex-col items-center">
+        <div className="min-h-[25rem] min-w-[40rem] bg-gray-100 border-transparent rounded-[5rem] shadow-2xl flex flex-col items-center">
           <div>
             <h2 className="text-3xl font-semibold pt-10">{heading}</h2>
           </div>
@@ -144,7 +144,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
             <div className="Led">
               <div className="flex items-center gap-5 ">
                 <div
-                  className="py-3 px-8 rounded-xl bg-blue-500 cursor-pointer"
+                  className="py-3 px-8 rounded-xl font-semibold bg-blue-500 hover:bg-blue-700 hover:text-white cursor-pointer"
                   onClick={() => {
                     setLedVal(1);
                   }}
@@ -152,7 +152,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
                   ON
                 </div>
                 <div
-                  className="py-3 px-8 rounded-xl bg-yellow-300 cursor-pointer"
+                  className="py-3 px-8 rounded-xl  hover:bg-yellow-500 bg-yellow-400 hover:text-white font-semibold cursor-pointer"
                   onClick={() => {
                     setLedVal(0);
                   }}
@@ -219,7 +219,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
             <div className="Light">
               <div className="flex items-center gap-5 ">
                 <div
-                  className="py-3 px-8 rounded-xl bg-blue-500 cursor-pointer"
+                  className="py-3 px-8 rounded-xl bg-blue-500 hover:bg-blue-700 hover:text-white cursor-pointer font-semibold"
                   onClick={() => {
                     setLightVal(1);
                   }}
@@ -227,7 +227,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
                   ON
                 </div>
                 <div
-                  className="py-3 px-8 rounded-xl bg-yellow-300 cursor-pointer"
+                  className="py-3 px-8 rounded-xl hover:bg-yellow-500 bg-yellow-400 font-semibold hover:text-white cursor-pointer"
                   onClick={() => {
                     setLightVal(0);
                   }}
