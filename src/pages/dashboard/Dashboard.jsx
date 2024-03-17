@@ -16,7 +16,7 @@ const Dashboard = () => {
   return (
     <div className="container mx-auto px-7 pt-6 mb-6">
 
-      <div className="grid lg:grid-cols-3 grid-cols-2 bg-gray-200 rounded-t-xl">
+      <div className="grid xl:grid-cols-3 grid-cols-2 bg-gray-200 rounded-t-xl">
         <div className=" col-span-2">
           <MainCard />
         </div>

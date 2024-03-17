@@ -54,7 +54,7 @@ const MainCard = () => {
 
   return (
     <div className=" p-4 border-transparent rounded-xl py-6">
-      <h1 className="text-4xl font-bold mb-5 text-center">Welcome too</h1>
+      <h1 className="text-4xl font-bold mb-5 text-center">Welcome to</h1>
       <h2 className="text-2xl font-bold mb-10 text-center">Knight's Home</h2>
 
       {/* <div className="flex justify-center items-center gap-4 text-center"> */}

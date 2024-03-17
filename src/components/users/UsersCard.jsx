@@ -4,7 +4,7 @@ import userData from './Userdata';
 
 const UsersCard = () => {
   return (
-    <div className="rounded-xl p-4 flex-col hidden lg:block justify-center items-center">
+    <div className="rounded-xl p-4 flex-col hidden xl:block justify-center items-center">
       <p className="text-2xl text-gray-900 font-bold text-center mt-4 mb-8"> Users </p>
       {userData.map((user, index) => (
         <div key={index} className="mx-auto mb-6">
