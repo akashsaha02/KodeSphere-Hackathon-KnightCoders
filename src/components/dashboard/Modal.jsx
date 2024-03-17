@@ -87,30 +87,30 @@ export const Modal = ({ modalHandler, heading, logo }) => {
 
   //LIGHT
 
-  useEffect(() => {
-    // Define a function to handle the API call based on the state
-    const handleBulbApiCall = async () => {
-      try {
-        if (ledVal === 1) {
-          await axios.post("https://kodessphere-api.vercel.app/devices", {
-            teamid: "SCdy54a",
-            device: "bulb",
-            value: parseFloat(lightVal),
-          });
-        } else if (ledVal === 0) {
-          await axios.post("https://kodessphere-api.vercel.app/devices", {
-            teamid: "SCdy54a",
-            device: "bulb",
-            value: parseFloat(lightVal),
-          });
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
+  // useEffect(() => {
 
-    handleBulbApiCall();
-  }, [lightVal]);
+  //   const handleBulbApiCall = async () => {
+  //     try {
+  //       if (ledVal === 1) {
+  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
+  //           teamid: "SCdy54a",
+  //           device: "bulb",
+  //           value: parseFloat(lightVal),
+  //         });
+  //       } else if (ledVal === 0) {
+  //         await axios.post("https://kodessphere-api.vercel.app/devices", {
+  //           teamid: "SCdy54a",
+  //           device: "bulb",
+  //           value: parseFloat(lightVal),
+  //         });
+  //       }
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //     }
+  //   };
+
+  //   handleBulbApiCall();
+  // }, [lightVal]);
 
   return (
     <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex flex-col justify-center items-center">
