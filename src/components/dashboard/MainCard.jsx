@@ -15,6 +15,24 @@ const MainCard = () => {
   //     .catch(error => console.log(error))
   // }, []);
 
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch("https://kodessphere-api.vercel.app/devices/SCdy54a");
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch data");
+  //       }
+  //       const result = await response.json();
+  //       setData(result);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
   console.log(data);
 
   const getBackgroundColor = (ledColor) => {

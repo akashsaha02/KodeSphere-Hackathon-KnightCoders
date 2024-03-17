@@ -41,7 +41,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
   //   handleApiCall();
   // }, [ledVal]);
 
-  //AC
+  // AC
   // useEffect(() => {
   //   const handleAcApiCall = async () => {
   //     try {
