@@ -3,13 +3,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from "./pages/profile/Profile";
 import Navbar from "./components/navbar/Navbar";
 import Dashboard from "./pages/dashboard/Dashboard";
+import UsersCard from "./components/users/UsersCard";
 
 function App() {
   return (
     <div>
+      <Navbar />
       <div className="container mx-auto">
-        <Navbar />
-        <UsersCard />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Dashboard />} />
