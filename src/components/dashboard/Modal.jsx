@@ -53,9 +53,11 @@ export const Modal = ({ modalHandler, heading, logo }) => {
             state: 1,
           },
         });
-        axios.get("https://kodessphere-api.vercel.app/devices").then((res) => {
-          setDisplayTemp(res.data.ac.temp);
-        });
+        await axios
+          .get("https://kodessphere-api.vercel.app/devices")
+          .then((res) => {
+            setDisplayTemp(res.data.ac.temp);
+          });
       } catch (error) {
         console.error("Error:", error);
       }
@@ -74,9 +76,11 @@ export const Modal = ({ modalHandler, heading, logo }) => {
           device: "fan",
           value: parseFloat(fanSpeed),
         });
-        axios.get("https://kodessphere-api.vercel.app/devices").then((res) => {
-          setDisplaySpeed(res.data.fan.speed);
-        });
+        await axios
+          .get("https://kodessphere-api.vercel.app/devices")
+          .then((res) => {
+            setDisplaySpeed(res.data.fan.speed);
+          });
       } catch (error) {
         console.error("Error:", error);
       }
@@ -90,13 +94,13 @@ export const Modal = ({ modalHandler, heading, logo }) => {
   useEffect(() => {
     const handleBulbApiCall = async () => {
       try {
-        if (ledVal === 1) {
+        if (lightVal === 1) {
           await axios.post("https://kodessphere-api.vercel.app/devices", {
             teamid: "SCdy54a",
             device: "bulb",
             value: parseFloat(lightVal),
           });
-        } else if (ledVal === 0) {
+        } else if (lightVal === 0) {
           await axios.post("https://kodessphere-api.vercel.app/devices", {
             teamid: "SCdy54a",
             device: "bulb",
@@ -131,7 +135,7 @@ export const Modal = ({ modalHandler, heading, logo }) => {
                 ) : logo === 2 ? (
                   <TbAirConditioning size={"4rem"} />
                 ) : logo === 3 ? (
-                  <FaLightbulb size={"4rem"} />
+                  <FaFan size={"4rem"} />
                 ) : (
                   <FaLightbulb size={"4rem"} />
                 )}

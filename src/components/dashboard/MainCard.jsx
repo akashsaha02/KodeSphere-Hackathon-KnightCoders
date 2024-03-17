@@ -10,16 +10,29 @@ const MainCard = () => {
 
   // useEffect(() => {
   //   fetch("https://kodessphere-api.vercel.app/devices/SCdy54a")
-  //     .then(response => response.json())
-  //     .then(data => setData(data))
-  //     .catch(error => console.log(error))
+  //     .then((response) => response.json())
+  //     .then((data) => setData(data))
+  //     .catch((error) => console.log(error));
   // }, []);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      fetch("https://kodessphere-api.vercel.app/devices/SCdy54a")
+        .then((response) => response.json())
+        .then((data) => setData(data))
+        .catch((error) => console.log(error));
+    }, 5000);
+
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://kodessphere-api.vercel.app/devices/SCdy54a");
+        const response = await fetch(
+          "https://kodessphere-api.vercel.app/devices/SCdy54a"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -51,7 +64,9 @@ const MainCard = () => {
             <div className="bg-white p-2 rounded-full mb-4">
               <HiOutlineLightBulb size={"4rem"} />
             </div>
-            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">State : {data.bulb == 0 ? "Off" : "On"}</h1>
+            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">
+              State : {data.bulb == 0 ? "Off" : "On"}
+            </h1>
           </div>
         </div>
         <div className="">
@@ -59,8 +74,12 @@ const MainCard = () => {
             <div className="bg-white p-2 rounded-full mb-4">
               <TbAirConditioning size={"4rem"} />
             </div>
-            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl mb-2">State : {data.ac?.state === 0 ? "Off" : "On"} </h1>
-            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">Temp : {data.ac?.temp}</h1>
+            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl mb-2">
+              State : {data.ac?.state === 0 ? "Off" : "On"}{" "}
+            </h1>
+            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">
+              Temp : {data.ac?.temp}
+            </h1>
           </div>
         </div>
         <div className="">
@@ -68,7 +87,9 @@ const MainCard = () => {
             <div className="bg-white p-2 rounded-full mb-4">
               <FaFan size={"4rem"} />
             </div>
-            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">Fan Speed : {data.fan} </h1>
+            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">
+              Fan Speed : {data.fan}{" "}
+            </h1>
           </div>
         </div>
         <div className="">
@@ -76,7 +97,15 @@ const MainCard = () => {
             <div className="bg-white p-2 rounded-full mb-4">
               <FaLightbulb size={"4rem"} />
             </div>
-            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">Color : <span className="text-sm text-red-600 px-2 rounded-full border-green-700 border-2" style={getBackgroundColor(data.led)}>{data.led == '#000000' ? "Off" : "ON"}</span></h1>
+            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">
+              Color :{" "}
+              <span
+                className="text-sm text-red-600 px-2 rounded-full border-green-700 border-2"
+                style={getBackgroundColor(data.led)}
+              >
+                {data.led == "#000000" ? "Off" : "ON"}
+              </span>
+            </h1>
           </div>
         </div>
       </div>
