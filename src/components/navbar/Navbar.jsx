@@ -13,7 +13,7 @@ const Navbar = () => {
         </div>
 
         {/* Right section with search box */}
-        <div className="relative">
+        <div className="relative hidden sm:block ">
           {/* Magnifying glass icon */}
           <div className="p-3 absolute top-1/2 transform -translate-y-1/2 text-gray-600">
             <svg

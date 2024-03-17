@@ -41,10 +41,11 @@ const MainCard = () => {
 
   return (
     <div className=" p-4 border-transparent rounded-xl py-6">
-      <h1 className="text-4xl font-bold mb-5 text-center">Welcome Home</h1>
-      <h2 className="text-2xl font-semibold mb-10 text-center">Username</h2>
+      <h1 className="text-4xl font-bold mb-5 text-center">Welcome too</h1>
+      <h2 className="text-2xl font-bold mb-10 text-center">Knight's Home</h2>
 
-      <div className="flex justify-center items-center gap-4 text-center">
+      {/* <div className="flex justify-center items-center gap-4 text-center"> */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 text-center">
         <div className="">
           <div className="flex justify-center items-center flex-col h-60 px-10 bg-green-500 rounded-xl">
             <div className="bg-white p-2 rounded-full mb-4">

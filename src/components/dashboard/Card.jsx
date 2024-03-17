@@ -11,7 +11,7 @@ const Card = ({ modalHandler, setHeading, setLogo }) => {
         <hr className="border-2 border-black  w-52 rounded-full text-center" />
         </div>
       </div>
-      <div className="flex items-center justify-center gap-14">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mx-10">
         <div
           onClick={() => {
             modalHandler();
