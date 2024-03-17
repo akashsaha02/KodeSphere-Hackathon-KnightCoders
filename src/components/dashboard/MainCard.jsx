@@ -75,7 +75,7 @@ const MainCard = () => {
             <div className="bg-white p-2 rounded-full mb-4">
               <FaLightbulb size={"4rem"} />
             </div>
-            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">Color : <span className="text-xs text-red-600 px-2 py-1 rounded-full border-green-700 border-2" style={getBackgroundColor(data.led)}>{data.led == '#000000' ? "Off" : "ON"}</span></h1>
+            <h1 className="bg-gray-50 font-bold uppercase px-2 py-1 w-full rounded-xl">Color : <span className="text-sm text-red-600 px-2 rounded-full border-green-700 border-2" style={getBackgroundColor(data.led)}>{data.led == '#000000' ? "Off" : "ON"}</span></h1>
           </div>
         </div>
       </div>
