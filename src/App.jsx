@@ -9,7 +9,7 @@ import Footer from './components/footer/Footer';
 
 function App() {
   return (
-    <div>
+    <div className='universal-app'>
       <Navbar />
       <div className="container mx-auto">
         <BrowserRouter>
