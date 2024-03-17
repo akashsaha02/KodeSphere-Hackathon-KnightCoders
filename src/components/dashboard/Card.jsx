@@ -2,7 +2,7 @@ import MinCard from "./MinCard";
 
 const Card = ({ modalHandler, setHeading, setLogo }) => {
   return (
-    <div className="grid grid-cols-2 grid-rows-2 p-5 mt-10 ml-8 bg-gray-100 border-transparent shadow-xl rounded-xl">
+    <div className="min-h-[20rem] flex items-center justify-center gap-14 bg-gray-100 border-transparent shadow-xl rounded-xl">
       <div
         onClick={() => {
           modalHandler();

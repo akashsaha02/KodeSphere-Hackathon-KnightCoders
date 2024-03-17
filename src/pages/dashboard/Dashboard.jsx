@@ -23,7 +23,7 @@ const Dashboard = () => {
         <MainCard />
       </div>
 
-      <div className="row-span-3">
+      <div className="col-span-2 row-span-3">
         <Card
           modalHandler={modalHandler}
           setHeading={setHeading}
